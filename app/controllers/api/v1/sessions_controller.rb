@@ -5,7 +5,7 @@ class API::V1::SessionsController < ApplicationController
             .try(:authenticate, params["user"]["password"])
 
     if user
-      session[:user_id] = user.id
+      # session[:user_id] = user.id
       render json: {
         status: :created,
         logged_in: true,
@@ -15,4 +15,10 @@ class API::V1::SessionsController < ApplicationController
       render json: { status: 401 }
     end
   end
+
+  def logout
+    reset_session
+    render json: {status: 200, logged_out: true}
+  end
+
 end

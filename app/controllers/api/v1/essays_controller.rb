@@ -1,4 +1,9 @@
 class Api::V1::EssaysController < ApplicationController
+  def index
+    essays = Essay.all
+    render json: essays
+  end
+
   def create
       essay = Essay.new(essay_params)
       if essay.save

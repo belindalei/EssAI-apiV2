@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     def create
        user = User.create(user_params)
        if ( user.valid?)
-        render json: {token: token, username: user.username, id: user.id}  
+        render json: user 
        else
         render :json => { :errors => user.errors.full_messages, :code => 69 }
        end
@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:password, :email)
+      params.permit(:password, :email)
   end
 
 end
