@@ -11,8 +11,8 @@ User.destroy_all
 Essay.destroy_all
 
 
-user_a = User.create!(password: "oassword", email: "sample1@email.com")
-user_b = User.create!(password: "testingasd", email: "sample2@email.com")
+user_a = User.create!(name:"belinda", password: "oassword", email: "sample1@email.com")
+user_b = User.create!(name: "steven", password: "testingasd", email: "sample2@email.com")
 puts "done making users"
 
 
