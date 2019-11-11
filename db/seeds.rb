@@ -20,8 +20,8 @@ essay_a = Essay.create!(title: "Hello World")
 essay_b = Essay.create!(title: "My little pony")
 puts "done making essays"
 
-# Where Watson API should go 
-response_a = Response.create!(paragraph: "I've always liked oranges", essay_id: essay_a.id, user_id: user_a.id)
-response_b = Response.create!(paragraph: "But apples are better", essay_id: essay_b.id, user_id: user_b.id)
+
+response_a = Response.create!(paragraph: "I've always liked oranges", essay_id: essay_a.id, user_id: user_a.id, saved: true)
+response_b = Response.create!(paragraph: "But apples are better", essay_id: essay_b.id, user_id: user_b.id, saved: false)
 
 puts "done making responses"

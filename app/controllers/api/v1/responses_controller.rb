@@ -4,6 +4,17 @@ class Api::V1::ResponsesController < ApplicationController
     render json: responses
   end
 
+  def show
+    response = Response.find(params[:id])
+    render json: response
+  end
+
+  def update
+    response = Response.find(params[:id])
+    response.update(response_params)
+    render json: response
+  end
+
   def create
     response = Response.new(response_params)
     if response.save
@@ -18,7 +29,7 @@ class Api::V1::ResponsesController < ApplicationController
   private
 
   def response_params
-      params.require(:response).permit(:paragraph, :user_id, :essay_id)
+      params.require(:response).permit(:paragraph, :user_id, :essay_id, :saved)
   end
 
 end
